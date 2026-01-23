@@ -308,3 +308,79 @@ p {
   }
 
 }
+/* ===============================
+   POURQUOI NOUS CHOISIR
+================================ */
+
+.section-title {
+  text-align: center;
+  color: var(--accent);
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 60px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.why-card {
+  background: white;
+  padding: 36px 28px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.1);
+}
+
+.why-card img {
+  width: 48px;
+  margin-bottom: 18px;
+}
+
+.why-card h3 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   RGE & GARANTIE
+================================ */
+
+.trust-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  align-items: center;
+}
+
+.trust-box {
+  background: white;
+  padding: 48px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0,0,0,.08);
+}
+
+.trust-box img {
+  height: 80px;
+  margin-bottom: 24px;
+}
+
+.trust-box h3 {
+  color: var(--accent);
+  margin-bottom: 16px;
+}
