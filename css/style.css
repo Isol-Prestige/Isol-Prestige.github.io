@@ -384,3 +384,48 @@ p {
   color: var(--accent);
   margin-bottom: 16px;
 }
+.cta-primary {
+  background: var(--accent);
+  color: #111;
+  font-weight: 600;
+}
+
+.cta-primary:hover {
+  background: #fbbf24;
+}
+.cta-center {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.cta-center h3 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.cta-center p {
+  color: var(--text-soft);
+  margin-bottom: 24px;
+}
+.cta-final {
+  background: url("../images/cta-bg.jpg") center/cover no-repeat;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.cta-overlay {
+  background: rgba(0,0,0,.55);
+  padding: 80px 20px;
+  color: white;
+}
+
+.cta-final h2 {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+}
+
+.cta-final p {
+  color: #e5e7eb;
+  margin-bottom: 32px;
+}
