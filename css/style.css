@@ -41,9 +41,12 @@ section{position:relative}
   align-items:center;
 }
 .logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
   color:#fff;
   font-weight:700;
-  letter-spacing:.5px;
 }
 
 /* ================= NAV ================= */
@@ -90,9 +93,7 @@ section{position:relative}
   padding:120px 24px 60px;
   color:#fff;
 }
-.hero-content{
-  max-width:760px;
-}
+.hero-content{max-width:760px}
 .hero h1{
   font-size:clamp(36px,5vw,56px);
   font-weight:700;
@@ -137,14 +138,6 @@ section{position:relative}
 }
 
 /* ================= SECTIONS ================= */
-.section > .container > h2{
-  margin-bottom:16px;
-}
-
-.section > .container > h3{
-  margin-bottom:60px;
-}
-
 .section{
   padding:120px 24px;
 }
@@ -159,18 +152,21 @@ section{position:relative}
 }
 .center{text-align:center}
 
-.section h2{
+/* ================= TITRES DE SECTION ================= */
+.section > .container > h2{
+  text-align:center;
   font-size:36px;
   font-weight:700;
-  margin-bottom:12px;
+  color:var(--accent);
+  margin-bottom:14px;
 }
-.section h3{
+.section > .container > h3{
+  text-align:center;
   font-size:22px;
   font-weight:600;
-  margin-bottom:16px;
+  color:#111;
+  margin-bottom:60px;
 }
-.section.alt h2{color:var(--accent)}
-.section.dark h2{color:var(--accent)}
 
 /* ================= LAYOUT ================= */
 .two-cols{
@@ -181,15 +177,12 @@ section{position:relative}
 }
 
 /* ================= A PROPOS ================= */
-.image-block{
-  position:relative;
-}
 .image-block img{
   border-radius:22px;
   box-shadow:0 30px 60px rgba(0,0,0,.25);
 }
 
-/* ================= TRUST / GARANTIES ================= */
+/* ================= GARANTIES ================= */
 .trust-container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -235,32 +228,22 @@ section{position:relative}
 }
 
 /* ================= REALISATIONS ================= */
-/* ================= BACKGROUND REALISATIONS ================= */
 #realisations.section.alt{
-  background:
-    linear-gradient(
-      to bottom,
-      #f7f8fb 0%,
-      #f5f6fa 50%,
-      #f7f8fb 100%
-    );
+  background:linear-gradient(to bottom,#f7f8fb,#f5f6fa,#f7f8fb);
 }
 
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
+  grid-template-columns:repeat(3, minmax(0,1fr));
   gap:36px;
 }
-
 .project-card{
   background:#fff;
   border-radius:24px;
   overflow:hidden;
-  padding-bottom:8px;
   box-shadow:0 18px 36px rgba(0,0,0,.15);
-  transition:.3s ease;
+  transition:.3s;
 }
-
 .project-card:hover{transform:translateY(-6px)}
 .project-card img{
   height:200px;
@@ -275,35 +258,20 @@ section{position:relative}
 }
 
 /* ================= POURQUOI NOUS ================= */
-/* Sous-titre - Pourquoi nous choisir */
-.why-subtitle{
-  text-align:center;
-  font-size:22px;
-  font-weight:600;
-  color:#111; /* noir */
-  margin:16px auto 60px;
-  max-width:900px;
-}
 .why-grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
+  grid-template-columns:repeat(3, minmax(0,1fr));
   gap:36px;
-  margin-top:60px;
 }
-
 .why-card{
   background:#fff;
   border-radius:22px;
   padding:44px 44px 56px;
   text-align:center;
   box-shadow:0 20px 40px rgba(0,0,0,.1);
-  transition:.35s ease;
+  transition:.35s;
 }
-
-.why-card:hover{
-  transform:translateY(-8px);
-}
-
+.why-card:hover{transform:translateY(-8px)}
 .why-icon{
   width:64px;
   height:64px;
@@ -316,41 +284,13 @@ section{position:relative}
   color:var(--accent);
   font-size:26px;
 }
-
 .why-card h3{
   font-size:20px;
-  font-weight:600;
   margin-bottom:14px;
 }
-
 .why-card p{
   font-size:15px;
   color:#4b5563;
-  line-height:1.6;
-}
-
-/* ================= RESPONSIVE ================= */
-@media(max-width:900px){
-  .why-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-@media(max-width:600px){
-  .why-grid{
-    grid-template-columns:1fr;
-  }
-}
-@media(max-width:900px){
-  .projects-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-@media(max-width:600px){
-  .projects-grid{
-    grid-template-columns:1fr;
-  }
 }
 
 /* ================= CONTACT ================= */
@@ -360,11 +300,6 @@ section{position:relative}
   padding:40px;
   box-shadow:0 20px 40px rgba(0,0,0,.1);
 }
-.contact-info a{
-  color:var(--accent);
-  font-weight:600;
-  text-decoration:none;
-}
 .contact-map{
   border-radius:22px;
   overflow:hidden;
@@ -372,7 +307,6 @@ section{position:relative}
 }
 .contact-map iframe{
   width:100%;
-  height:100%;
   min-height:380px;
   border:0;
 }
@@ -388,14 +322,6 @@ section{position:relative}
   text-align:center;
   color:#fff;
 }
-.cta-overlay h2{
-  font-size:40px;
-  margin-bottom:12px;
-}
-.cta-overlay p{
-  margin-bottom:32px;
-  color:#e5e7eb;
-}
 
 /* ================= FOOTER ================= */
 .footer{
@@ -404,15 +330,15 @@ section{position:relative}
   padding:70px 20px;
   text-align:center;
 }
-.footer a{
-  color:#9ca3af;
-  text-decoration:none;
-}
-.footer a:hover{color:#fff}
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
   .two-cols{grid-template-columns:1fr}
+  .projects-grid,
+  .why-grid{grid-template-columns:repeat(2,1fr)}
   .hero{padding-top:140px}
-  .hero-actions{justify-content:flex-start}
+}
+@media(max-width:600px){
+  .projects-grid,
+  .why-grid{grid-template-columns:1fr}
 }
