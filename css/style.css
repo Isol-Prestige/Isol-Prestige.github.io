@@ -255,7 +255,7 @@ section{position:relative}
 /* ================= POURQUOI NOUS ================= */
 .why-grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:36px;
   margin-top:60px;
 }
@@ -310,7 +310,6 @@ section{position:relative}
     grid-template-columns:1fr;
   }
 }
-
 /* ================= CONTACT ================= */
 .contact-info{
   background:#fff;
