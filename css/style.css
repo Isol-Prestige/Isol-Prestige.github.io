@@ -253,37 +253,43 @@ section{position:relative}
 }
 
 /* ================= POURQUOI NOUS ================= */
-/* ================= POURQUOI NOUS ================= */
 .why-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
-  gap:32px;
+  gap:36px;
   margin-top:60px;
 }
 
 .why-card{
   background:#fff;
-  border-radius:20px;
-  padding:40px 30px;
+  border-radius:22px;
+  padding:44px 32px;
   text-align:center;
-  box-shadow:0 18px 36px rgba(0,0,0,.1);
-  transition:.3s ease;
+  box-shadow:0 20px 40px rgba(0,0,0,.1);
+  transition:.35s ease;
 }
 
 .why-card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
 }
 
 .why-icon{
-  font-size:38px;
-  margin-bottom:20px;
+  width:64px;
+  height:64px;
+  margin:0 auto 22px;
+  border-radius:50%;
+  background:rgba(245,158,11,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
   color:var(--accent);
+  font-size:26px;
 }
 
 .why-card h3{
   font-size:20px;
   font-weight:600;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 
 .why-card p{
@@ -304,7 +310,6 @@ section{position:relative}
     grid-template-columns:1fr;
   }
 }
-
 
 /* ================= CONTACT ================= */
 .contact-info{
