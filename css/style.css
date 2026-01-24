@@ -245,11 +245,13 @@ section{position:relative}
       #f7f8fb 100%
     );
 }
+
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:36px;
 }
+
 .project-card{
   background:#fff;
   border-radius:24px;
@@ -270,6 +272,18 @@ section{position:relative}
 .project-card p{
   padding:0 22px 22px;
   color:#4b5563;
+}
+
+@media(max-width:900px){
+  .projects-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px){
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 /* ================= POURQUOI NOUS ================= */
