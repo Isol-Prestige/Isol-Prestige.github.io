@@ -274,18 +274,6 @@ section{position:relative}
   color:#4b5563;
 }
 
-@media(max-width:900px){
-  .projects-grid{
-    grid-template-columns:repeat(2, 1fr);
-  }
-}
-
-@media(max-width:600px){
-  .projects-grid{
-    grid-template-columns:1fr;
-  }
-}
-
 /* ================= POURQUOI NOUS ================= */
 /* Sous-titre - Pourquoi nous choisir */
 .why-subtitle{
@@ -353,6 +341,18 @@ section{position:relative}
     grid-template-columns:1fr;
   }
 }
+@media(max-width:900px){
+  .projects-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:600px){
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 /* ================= CONTACT ================= */
 .contact-info{
   background:#fff;
