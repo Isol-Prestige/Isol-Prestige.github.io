@@ -260,12 +260,13 @@ section{position:relative}
   margin-top:60px;
 }
 
- .why-card{
+.why-card{
   background:#fff;
   border-radius:22px;
-  padding:44px 32px;
+  padding:44px 44px 56px;
   text-align:center;
   box-shadow:0 20px 40px rgba(0,0,0,.1);
+  transition:.35s ease;
 }
 
 .why-card:hover{
