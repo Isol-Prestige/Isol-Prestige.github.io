@@ -253,6 +253,15 @@ section{position:relative}
 }
 
 /* ================= POURQUOI NOUS ================= */
+/* Sous-titre - Pourquoi nous choisir */
+.why-subtitle{
+  text-align:center;
+  font-size:22px;
+  font-weight:600;
+  color:#111; /* noir */
+  margin:16px auto 60px;
+  max-width:900px;
+}
 .why-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
