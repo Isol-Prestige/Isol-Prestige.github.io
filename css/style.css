@@ -480,24 +480,24 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   .legal-card{padding:28px}
 }
 .muted{color:#6b7280}
-/* ================= COOKIE (style premium) ================= */
+/* ================= COOKIE (FINAL + RESPONSIVE) ================= */
 .cookie{
   position:fixed;
   left:18px;
   right:18px;
-  bottom:18px;
-  z-index:2500;
+  bottom:calc(18px + env(safe-area-inset-bottom, 0px)); /* ✅ iPhone safe area */
+  z-index:99999; /* ✅ au-dessus de tout (header etc.) */
 }
 
 .cookie__inner{
   max-width:1200px;
   margin:0 auto;
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.94);
   backdrop-filter:blur(12px);
   border:1px solid rgba(15,23,42,.10);
   border-radius:22px;
   box-shadow:0 22px 60px rgba(0,0,0,.18);
-  padding:16px 16px;
+  padding:16px;
   display:grid;
   grid-template-columns:auto 1fr auto;
   gap:14px;
@@ -513,6 +513,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   justify-content:center;
   color:var(--accent);
   font-size:22px;
+  flex:0 0 auto;
 }
 
 .cookie__title{
@@ -540,8 +541,10 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   gap:10px;
   flex-wrap:wrap;
   justify-content:flex-end;
+  align-items:center;
 }
 
+/* Boutons cohérents avec ton design */
 .cookie-btn{
   border:0;
   border-radius:999px;
@@ -555,6 +558,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 .cookie-btn--primary{
   background:var(--accent);
   color:#111;
+  box-shadow:0 14px 28px rgba(245,158,11,.22);
 }
 .cookie-btn--primary:hover{
   background:var(--accent-dark);
@@ -562,33 +566,38 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 }
 
 .cookie-btn--ghost{
-  background:rgba(15,23,42,.06);
-  border:1px solid rgba(15,23,42,.10);
+  background:#fff;
   color:#111;
+  border:1px solid rgba(15,23,42,.12);
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 .cookie-btn--ghost:hover{
-  background:rgba(15,23,42,.09);
+  border-color:rgba(245,158,11,.45);
   transform:translateY(-1px);
 }
 
-/* ================= COOKIE MODAL (premium) ================= */
+/* ================= COOKIE MODAL (FINAL + RESPONSIVE) ================= */
 .cookie-modal{
   position:fixed;
   inset:0;
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2600;
+  z-index:100000; /* ✅ au-dessus du bandeau */
   background:rgba(0,0,0,.55);
   padding:18px;
 }
 
 .cookie-modal__card{
-  width:min(620px, 100%);
+  width:min(640px, 100%);
   background:#fff;
   border-radius:26px;
   padding:26px;
   box-shadow:0 24px 70px rgba(0,0,0,.25);
+
+  /* ✅ évite que le contenu dépasse sur petits écrans */
+  max-height:calc(100dvh - 48px);
+  overflow:auto;
 }
 
 .cookie-modal__head{
@@ -606,6 +615,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   align-items:center;
   justify-content:center;
   color:var(--accent);
+  flex:0 0 auto;
 }
 
 .cookie-modal__head h3{
@@ -651,6 +661,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   margin-top:2px;
 }
 
+/* ✅ actions modal (si tu utilises cookie-modal__actions dans ton HTML) */
 .cookie-modal__actions{
   display:flex;
   justify-content:flex-end;
@@ -658,14 +669,45 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   flex-wrap:wrap;
 }
 
-/* Responsive */
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Tablette & petits laptops */
+@media(max-width:900px){
+  .cookie{
+    left:14px;
+    right:14px;
+  }
+  .cookie__inner{
+    padding:14px;
+    border-radius:20px;
+  }
+}
+
+/* Mobile : on stack le bandeau */
 @media(max-width:720px){
   .cookie__inner{
     grid-template-columns:auto 1fr;
     grid-template-rows:auto auto;
+    align-items:start;
   }
   .cookie__actions{
     grid-column:1 / -1;
     justify-content:flex-start;
+  }
+}
+
+/* Très petit mobile : boutons full-width */
+@media(max-width:420px){
+  .cookie{
+    left:12px;
+    right:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+  .cookie__actions{
+    width:100%;
+  }
+  .cookie-btn{
+    width:100%;
+    justify-content:center;
   }
 }
