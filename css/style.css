@@ -712,25 +712,22 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   background:rgba(255,255,255,.08);
   backdrop-filter:blur(8px);
   cursor:pointer;
-
-  /* ✅ IMPORTANT : empile les 3 traits */
-  display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   gap:6px;
 }
-
 .nav-toggle span{
   display:block;
-  width:20px;
-  height:2px;
+  width:20px;height:2px;
   background:#fff;
   border-radius:999px;
 }
 
-/* Desktop menu visible par défaut */
-.nav-links-desktop{ display:flex; }
+@media(max-width:900px){
+  .nav-toggle{ display:flex; }
+  .nav-links-desktop{ display:none; }
+}
 
 /* Mobile panel + overlay */
 .mobile-menu-overlay{
