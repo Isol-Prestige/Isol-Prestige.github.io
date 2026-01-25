@@ -4,165 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ISOL PRESTIGE – Isolation extérieure</title>
-  <meta name="description" content="ISOL PRESTIGE, expert en isolation extérieure, ravalement de façade et peinture extérieure. Devis gratuit.">
+
+  <!-- ✅ SEO : ajout départements 54 / 88 / 67 -->
+  <meta name="description" content="ISOL PRESTIGE, expert en isolation extérieure (ITE), ravalement de façade et peinture extérieure. Devis gratuit. Interventions dans les Vosges (88), Meurthe-et-Moselle (54) et Bas-Rhin (67).">
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<!-- ================= COOKIE BANNER (RGPD) ================= -->
-<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Préférences cookies">
-  <div class="cookie__inner">
-    <div class="cookie__icon" aria-hidden="true">
-      <i class="fa-solid fa-cookie-bite"></i>
-    </div>
-
-    <div class="cookie__text">
-      <p class="cookie__title">Votre vie privée compte</p>
-      <p class="cookie__desc">
-        Nous utilisons des cookies nécessaires au fonctionnement du site. Les cookies optionnels (ex : mesure d’audience)
-        ne sont activés qu’avec votre accord.
-        <a href="politique-confidentialite.html">En savoir plus</a>.
-      </p>
-    </div>
-
-    <div class="cookie__actions">
-      <button class="cookie-btn cookie-btn--ghost" id="cookieRefuse">Refuser</button>
-      <button class="cookie-btn cookie-btn--ghost" id="cookieCustomize">Personnaliser</button>
-      <button class="cookie-btn cookie-btn--primary" id="cookieAccept">Accepter</button>
-    </div>
-  </div>
-</div>
-
-<!-- ================= COOKIE MODAL ================= -->
-<div class="cookie-modal" id="cookieModal" aria-hidden="true">
-  <div class="cookie-modal__card" role="dialog" aria-label="Personnaliser les cookies">
-    <div class="cookie-modal__head">
-      <div class="cookie-modal__badge"><i class="fa-solid fa-shield-halved"></i></div>
-      <div>
-        <h3>Personnaliser les cookies</h3>
-        <p>Choisissez les catégories que vous autorisez.</p>
-      </div>
-    </div>
-
-    <div class="cookie-modal__options">
-      <label class="cookie-option">
-        <input type="checkbox" checked disabled>
-        <span>
-          <strong>Nécessaires</strong>
-          <em>Obligatoires pour le fonctionnement du site.</em>
-        </span>
-      </label>
-
-      <label class="cookie-option">
-        <input type="checkbox" id="cookieAnalytics">
-        <span>
-          <strong>Mesure d’audience</strong>
-          <em>Optionnel, aide à améliorer le site.</em>
-        </span>
-      </label>
-    </div>
-
-    <div class="cookie-modal__actions">
-      <button class="cookie-btn cookie-btn--ghost" id="cookieClose">Annuler</button>
-      <button class="cookie-btn cookie-btn--primary" id="cookieSave">Enregistrer</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function () {
-    const KEY = "cookieConsent_v2";
-
-    const banner = document.getElementById("cookieBanner");
-    const modal = document.getElementById("cookieModal");
-
-    const btnAccept = document.getElementById("cookieAccept");
-    const btnRefuse = document.getElementById("cookieRefuse");
-    const btnCustomize = document.getElementById("cookieCustomize");
-
-    const btnClose = document.getElementById("cookieClose");
-    const btnSave = document.getElementById("cookieSave");
-    const chkAnalytics = document.getElementById("cookieAnalytics");
-
-    function getConsent() {
-      try { return JSON.parse(localStorage.getItem(KEY)); } catch(e) { return null; }
-    }
-    function setConsent(data) {
-      localStorage.setItem(KEY, JSON.stringify(data));
-    }
-    function hideBanner() {
-      if (banner) banner.style.display = "none";
-    }
-    function openModal() {
-      modal.style.display = "flex";
-      modal.setAttribute("aria-hidden", "false");
-    }
-    function closeModal() {
-      modal.style.display = "none";
-      modal.setAttribute("aria-hidden", "true");
-    }
-
-    function applyConsent(consent) {
-      // Ici tu peux charger des scripts non essentiels si un jour tu ajoutes Analytics.
-      // Exemple : if (consent.analytics) { ... }
-    }
-
-    const consent = getConsent();
-    if (consent && consent.choice) {
-      hideBanner();
-      applyConsent(consent);
-    }
-
-    btnAccept?.addEventListener("click", () => {
-      const data = { choice: "accepted", analytics: true };
-      setConsent(data);
-      hideBanner();
-      applyConsent(data);
-    });
-
-    btnRefuse?.addEventListener("click", () => {
-      const data = { choice: "refused", analytics: false };
-      setConsent(data);
-      hideBanner();
-      applyConsent(data);
-    });
-
-    btnCustomize?.addEventListener("click", () => {
-      const current = getConsent();
-      chkAnalytics.checked = !!(current && current.analytics);
-      openModal();
-    });
-
-    btnClose?.addEventListener("click", closeModal);
-
-    btnSave?.addEventListener("click", () => {
-      const data = { choice: "custom", analytics: chkAnalytics.checked };
-      setConsent(data);
-      hideBanner();
-      applyConsent(data);
-      closeModal();
-    });
-
-    modal?.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    window.openCookieSettings = function () {
-      const current = getConsent();
-      chkAnalytics.checked = !!(current && current.analytics);
-      openModal();
-    };
-  })();
-</script>
 
 <body>
 
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="header-inner">
-      <a href="#accueil" class="logo">
+      <a href="#accueil" class="logo" aria-label="Retour à l'accueil">
         <img src="images/logo.png" alt="ISOL PRESTIGE - Isolation extérieure">
-        <span>ISOL PRESTIGE</span>
+        <!-- ✅ Texte retiré : le logo contient déjà le nom -->
       </a>
 
       <nav aria-label="Navigation principale">
@@ -222,7 +79,6 @@
   <!-- ================= GARANTIES ================= -->
   <section class="section">
     <div class="container">
-
       <div class="trust-container">
 
         <div class="trust-box">
@@ -242,11 +98,10 @@
         </div>
 
       </div>
-
     </div>
   </section>
 
-  <!-- ================= SERVICES (refait) ================= -->
+  <!-- ================= SERVICES ================= -->
   <section id="services" class="section dark">
     <div class="container">
 
@@ -378,11 +233,10 @@
     </div>
   </section>
 
-  <!-- ================= CONTACT (refait) ================= -->
+  <!-- ================= CONTACT ================= -->
   <section id="contact" class="section alt contact-section">
     <div class="container contact-grid">
 
-      <!-- Coordonnées + map dessous -->
       <div class="contact-stack">
         <div class="contact-info">
           <h2>Nos coordonnées</h2>
@@ -401,12 +255,10 @@
         </div>
       </div>
 
-      <!-- Google Form -->
       <div class="contact-form">
         <h2>Formulaire de contact</h2>
         <p class="contact-form-sub">Réponse rapide • Devis gratuit • Sans engagement</p>
 
-        <!-- IMPORTANT : remplace le src par le lien EMBED de ton Google Form -->
         <iframe
           class="form-iframe"
           src="https://docs.google.com/forms/d/e/TON_ID_DE_FORM/viewform?embedded=true"
@@ -429,17 +281,157 @@
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <p>© ISOL PRESTIGE</p>
-<div class="footer-links">
-  <a href="mentions-legales.html">Mentions légales</a>
-  <span>·</span>
-  <a href="politique-confidentialite.html">Politique de confidentialité</a>
-  <span>·</span>
-  <a href="#" onclick="openCookieSettings(); return false;">Gérer mes cookies</a>
-</div>
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <span>·</span>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      <span>·</span>
+      <a href="#" onclick="openCookieSettings(); return false;">Gérer mes cookies</a>
+    </div>
   </footer>
+
+  <!-- ================= COOKIES (✅ placé au bon endroit : fin de body) ================= -->
+  <div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Préférences cookies">
+    <div class="cookie__inner">
+      <div class="cookie__icon" aria-hidden="true">
+        <i class="fa-solid fa-cookie-bite"></i>
+      </div>
+
+      <div class="cookie__text">
+        <p class="cookie__title">Votre vie privée compte</p>
+        <p class="cookie__desc">
+          Nous utilisons des cookies nécessaires au fonctionnement du site. Les cookies optionnels (ex : mesure d’audience)
+          ne sont activés qu’avec votre accord.
+          <a href="politique-confidentialite.html">En savoir plus</a>.
+        </p>
+      </div>
+
+      <div class="cookie__actions">
+        <button class="cookie-btn cookie-btn--ghost" id="cookieRefuse">Refuser</button>
+        <button class="cookie-btn cookie-btn--ghost" id="cookieCustomize">Personnaliser</button>
+        <button class="cookie-btn cookie-btn--primary" id="cookieAccept">Accepter</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal" id="cookieModal" aria-hidden="true">
+    <div class="cookie-modal__card" role="dialog" aria-label="Personnaliser les cookies">
+      <div class="cookie-modal__head">
+        <div class="cookie-modal__badge"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <h3>Personnaliser les cookies</h3>
+          <p>Choisissez les catégories que vous autorisez.</p>
+        </div>
+      </div>
+
+      <div class="cookie-modal__options">
+        <label class="cookie-option">
+          <input type="checkbox" checked disabled>
+          <span>
+            <strong>Nécessaires</strong>
+            <em>Obligatoires pour le fonctionnement du site.</em>
+          </span>
+        </label>
+
+        <label class="cookie-option">
+          <input type="checkbox" id="cookieAnalytics">
+          <span>
+            <strong>Mesure d’audience</strong>
+            <em>Optionnel, aide à améliorer le site.</em>
+          </span>
+        </label>
+      </div>
+
+      <div class="cookie-modal__actions">
+        <button class="cookie-btn cookie-btn--ghost" id="cookieClose">Annuler</button>
+        <button class="cookie-btn cookie-btn--primary" id="cookieSave">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const KEY = "cookieConsent_v2";
+
+      const banner = document.getElementById("cookieBanner");
+      const modal = document.getElementById("cookieModal");
+
+      const btnAccept = document.getElementById("cookieAccept");
+      const btnRefuse = document.getElementById("cookieRefuse");
+      const btnCustomize = document.getElementById("cookieCustomize");
+
+      const btnClose = document.getElementById("cookieClose");
+      const btnSave = document.getElementById("cookieSave");
+      const chkAnalytics = document.getElementById("cookieAnalytics");
+
+      function getConsent() {
+        try { return JSON.parse(localStorage.getItem(KEY)); } catch(e) { return null; }
+      }
+      function setConsent(data) {
+        localStorage.setItem(KEY, JSON.stringify(data));
+      }
+      function hideBanner() {
+        if (banner) banner.style.display = "none";
+      }
+      function openModal() {
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+      }
+      function closeModal() {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+      function applyConsent(consent) {
+        // Ici tu pourras charger des scripts non essentiels si un jour tu ajoutes Analytics.
+      }
+
+      const consent = getConsent();
+      if (consent && consent.choice) {
+        hideBanner();
+        applyConsent(consent);
+      }
+
+      btnAccept?.addEventListener("click", () => {
+        const data = { choice: "accepted", analytics: true };
+        setConsent(data);
+        hideBanner();
+        applyConsent(data);
+      });
+
+      btnRefuse?.addEventListener("click", () => {
+        const data = { choice: "refused", analytics: false };
+        setConsent(data);
+        hideBanner();
+        applyConsent(data);
+      });
+
+      btnCustomize?.addEventListener("click", () => {
+        const current = getConsent();
+        chkAnalytics.checked = !!(current && current.analytics);
+        openModal();
+      });
+
+      btnClose?.addEventListener("click", closeModal);
+
+      btnSave?.addEventListener("click", () => {
+        const data = { choice: "custom", analytics: chkAnalytics.checked };
+        setConsent(data);
+        hideBanner();
+        applyConsent(data);
+        closeModal();
+      });
+
+      modal?.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      window.openCookieSettings = function () {
+        const current = getConsent();
+        chkAnalytics.checked = !!(current && current.analytics);
+        openModal();
+      };
+    })();
+  </script>
 
 </body>
 </html>
-
-
-
