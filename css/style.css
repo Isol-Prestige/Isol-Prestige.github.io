@@ -60,7 +60,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   font-weight:900;
   letter-spacing:.02em;
 }
-.logo img{height:60px;width:auto}
+.logo img{height:52px;width:auto}
 
 /* ================= NAV ================= */
 .nav-links{
