@@ -10,50 +10,68 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <!-- ================= COOKIE BANNER (RGPD) ================= -->
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Bandeau cookies">
-  <div class="cookie-content">
-    <p>
-      Nous utilisons des cookies pour améliorer votre expérience. Les cookies nécessaires au fonctionnement du site sont
-      toujours actifs. Vous pouvez accepter ou refuser les cookies non essentiels.
-      <a href="politique-confidentialite.html">En savoir plus</a>.
-    </p>
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Préférences cookies">
+  <div class="cookie__inner">
+    <div class="cookie__icon" aria-hidden="true">
+      <i class="fa-solid fa-cookie-bite"></i>
+    </div>
 
-    <div class="cookie-actions">
-      <button class="btn-cookie btn-cookie-secondary" id="cookieRefuse">Refuser</button>
-      <button class="btn-cookie btn-cookie-secondary" id="cookieCustomize">Personnaliser</button>
-      <button class="btn-cookie btn-cookie-primary" id="cookieAccept">Accepter</button>
+    <div class="cookie__text">
+      <p class="cookie__title">Votre vie privée compte</p>
+      <p class="cookie__desc">
+        Nous utilisons des cookies nécessaires au fonctionnement du site. Les cookies optionnels (ex : mesure d’audience)
+        ne sont activés qu’avec votre accord.
+        <a href="politique-confidentialite.html">En savoir plus</a>.
+      </p>
+    </div>
+
+    <div class="cookie__actions">
+      <button class="cookie-btn cookie-btn--ghost" id="cookieRefuse">Refuser</button>
+      <button class="cookie-btn cookie-btn--ghost" id="cookieCustomize">Personnaliser</button>
+      <button class="cookie-btn cookie-btn--primary" id="cookieAccept">Accepter</button>
     </div>
   </div>
 </div>
 
-<!-- ================= COOKIE MODAL (Personnaliser) ================= -->
+<!-- ================= COOKIE MODAL ================= -->
 <div class="cookie-modal" id="cookieModal" aria-hidden="true">
-  <div class="cookie-modal-card" role="dialog" aria-label="Préférences cookies">
-    <h3>Préférences cookies</h3>
-    <p>Choisissez les catégories que vous autorisez.</p>
+  <div class="cookie-modal__card" role="dialog" aria-label="Personnaliser les cookies">
+    <div class="cookie-modal__head">
+      <div class="cookie-modal__badge"><i class="fa-solid fa-shield-halved"></i></div>
+      <div>
+        <h3>Personnaliser les cookies</h3>
+        <p>Choisissez les catégories que vous autorisez.</p>
+      </div>
+    </div>
 
-    <div class="cookie-options">
+    <div class="cookie-modal__options">
       <label class="cookie-option">
         <input type="checkbox" checked disabled>
-        <span><strong>Nécessaires</strong> (obligatoires)</span>
+        <span>
+          <strong>Nécessaires</strong>
+          <em>Obligatoires pour le fonctionnement du site.</em>
+        </span>
       </label>
 
       <label class="cookie-option">
         <input type="checkbox" id="cookieAnalytics">
-        <span><strong>Mesure d’audience</strong> (optionnel)</span>
+        <span>
+          <strong>Mesure d’audience</strong>
+          <em>Optionnel, aide à améliorer le site.</em>
+        </span>
       </label>
     </div>
 
-    <div class="cookie-actions">
-      <button class="btn-cookie btn-cookie-secondary" id="cookieClose">Fermer</button>
-      <button class="btn-cookie btn-cookie-primary" id="cookieSave">Enregistrer</button>
+    <div class="cookie-modal__actions">
+      <button class="cookie-btn cookie-btn--ghost" id="cookieClose">Annuler</button>
+      <button class="cookie-btn cookie-btn--primary" id="cookieSave">Enregistrer</button>
     </div>
   </div>
 </div>
 
 <script>
   (function () {
-    const KEY = "cookieConsent_v1"; // { choice: "accepted"|"refused"|"custom", analytics: true|false }
+    const KEY = "cookieConsent_v2";
 
     const banner = document.getElementById("cookieBanner");
     const modal = document.getElementById("cookieModal");
@@ -84,13 +102,11 @@
       modal.setAttribute("aria-hidden", "true");
     }
 
-    // ✅ Ici tu charges tes scripts non essentiels (analytics etc.) si un jour tu en ajoutes
     function applyConsent(consent) {
-      // Exemple : si consent.analytics === true => charger Google Analytics
-      // Pour l’instant tu n’en as pas, donc rien à faire.
+      // Ici tu peux charger des scripts non essentiels si un jour tu ajoutes Analytics.
+      // Exemple : if (consent.analytics) { ... }
     }
 
-    // Si déjà choisi -> ne pas afficher
     const consent = getConsent();
     if (consent && consent.choice) {
       hideBanner();
@@ -127,12 +143,10 @@
       closeModal();
     });
 
-    // Fermer au clic en dehors
     modal?.addEventListener("click", (e) => {
       if (e.target === modal) closeModal();
     });
 
-    // ✅ Fonction globale pour “Gérer mes cookies”
     window.openCookieSettings = function () {
       const current = getConsent();
       chkAnalytics.checked = !!(current && current.analytics);
@@ -424,4 +438,5 @@
 
 </body>
 </html>
+
 
