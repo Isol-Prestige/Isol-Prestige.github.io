@@ -480,3 +480,102 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   .legal-card{padding:28px}
 }
 .muted{color:#6b7280}
+/* ================= COOKIE BANNER (RGPD) ================= */
+.cookie-banner{
+  position:fixed;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  z-index:2000;
+}
+.cookie-content{
+  max-width:1100px;
+  margin:0 auto;
+  background:rgba(15,23,42,.92);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:18px 18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  display:flex;
+  gap:16px;
+  align-items:center;
+  justify-content:space-between;
+  backdrop-filter:blur(10px);
+}
+.cookie-content p{
+  margin:0;
+  font-size:14px;
+  color:rgba(255,255,255,.85);
+}
+.cookie-content a{
+  color:#fff;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+.cookie-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.btn-cookie{
+  border:0;
+  border-radius:999px;
+  padding:10px 16px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.btn-cookie-primary{
+  background:var(--accent);
+  color:#111;
+}
+.btn-cookie-primary:hover{background:var(--accent-dark); transform:translateY(-1px);}
+.btn-cookie-secondary{
+  background:rgba(255,255,255,.10);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.14);
+}
+.btn-cookie-secondary:hover{background:rgba(255,255,255,.16); transform:translateY(-1px);}
+
+/* ================= COOKIE MODAL ================= */
+.cookie-modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2200;
+  background:rgba(0,0,0,.55);
+  padding:18px;
+}
+.cookie-modal-card{
+  width:min(560px, 100%);
+  background:#fff;
+  border-radius:22px;
+  padding:26px;
+  box-shadow:0 20px 40px rgba(0,0,0,.22);
+}
+.cookie-modal-card h3{margin:0 0 8px; font-weight:900}
+.cookie-modal-card p{margin:0 0 14px; color:#4b5563}
+
+.cookie-options{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:16px 0 18px;
+}
+.cookie-option{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px;
+  border-radius:14px;
+  background:#f7f8fb;
+  border:1px solid rgba(15,23,42,.08);
+}
+.cookie-option input{margin-top:4px}
+.cookie-option span{color:#111}
