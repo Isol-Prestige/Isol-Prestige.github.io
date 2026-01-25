@@ -9,6 +9,137 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+<!-- ================= COOKIE BANNER (RGPD) ================= -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Bandeau cookies">
+  <div class="cookie-content">
+    <p>
+      Nous utilisons des cookies pour améliorer votre expérience. Les cookies nécessaires au fonctionnement du site sont
+      toujours actifs. Vous pouvez accepter ou refuser les cookies non essentiels.
+      <a href="politique-confidentialite.html">En savoir plus</a>.
+    </p>
+
+    <div class="cookie-actions">
+      <button class="btn-cookie btn-cookie-secondary" id="cookieRefuse">Refuser</button>
+      <button class="btn-cookie btn-cookie-secondary" id="cookieCustomize">Personnaliser</button>
+      <button class="btn-cookie btn-cookie-primary" id="cookieAccept">Accepter</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= COOKIE MODAL (Personnaliser) ================= -->
+<div class="cookie-modal" id="cookieModal" aria-hidden="true">
+  <div class="cookie-modal-card" role="dialog" aria-label="Préférences cookies">
+    <h3>Préférences cookies</h3>
+    <p>Choisissez les catégories que vous autorisez.</p>
+
+    <div class="cookie-options">
+      <label class="cookie-option">
+        <input type="checkbox" checked disabled>
+        <span><strong>Nécessaires</strong> (obligatoires)</span>
+      </label>
+
+      <label class="cookie-option">
+        <input type="checkbox" id="cookieAnalytics">
+        <span><strong>Mesure d’audience</strong> (optionnel)</span>
+      </label>
+    </div>
+
+    <div class="cookie-actions">
+      <button class="btn-cookie btn-cookie-secondary" id="cookieClose">Fermer</button>
+      <button class="btn-cookie btn-cookie-primary" id="cookieSave">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const KEY = "cookieConsent_v1"; // { choice: "accepted"|"refused"|"custom", analytics: true|false }
+
+    const banner = document.getElementById("cookieBanner");
+    const modal = document.getElementById("cookieModal");
+
+    const btnAccept = document.getElementById("cookieAccept");
+    const btnRefuse = document.getElementById("cookieRefuse");
+    const btnCustomize = document.getElementById("cookieCustomize");
+
+    const btnClose = document.getElementById("cookieClose");
+    const btnSave = document.getElementById("cookieSave");
+    const chkAnalytics = document.getElementById("cookieAnalytics");
+
+    function getConsent() {
+      try { return JSON.parse(localStorage.getItem(KEY)); } catch(e) { return null; }
+    }
+    function setConsent(data) {
+      localStorage.setItem(KEY, JSON.stringify(data));
+    }
+    function hideBanner() {
+      if (banner) banner.style.display = "none";
+    }
+    function openModal() {
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
+    }
+    function closeModal() {
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    // ✅ Ici tu charges tes scripts non essentiels (analytics etc.) si un jour tu en ajoutes
+    function applyConsent(consent) {
+      // Exemple : si consent.analytics === true => charger Google Analytics
+      // Pour l’instant tu n’en as pas, donc rien à faire.
+    }
+
+    // Si déjà choisi -> ne pas afficher
+    const consent = getConsent();
+    if (consent && consent.choice) {
+      hideBanner();
+      applyConsent(consent);
+    }
+
+    btnAccept?.addEventListener("click", () => {
+      const data = { choice: "accepted", analytics: true };
+      setConsent(data);
+      hideBanner();
+      applyConsent(data);
+    });
+
+    btnRefuse?.addEventListener("click", () => {
+      const data = { choice: "refused", analytics: false };
+      setConsent(data);
+      hideBanner();
+      applyConsent(data);
+    });
+
+    btnCustomize?.addEventListener("click", () => {
+      const current = getConsent();
+      chkAnalytics.checked = !!(current && current.analytics);
+      openModal();
+    });
+
+    btnClose?.addEventListener("click", closeModal);
+
+    btnSave?.addEventListener("click", () => {
+      const data = { choice: "custom", analytics: chkAnalytics.checked };
+      setConsent(data);
+      hideBanner();
+      applyConsent(data);
+      closeModal();
+    });
+
+    // Fermer au clic en dehors
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // ✅ Fonction globale pour “Gérer mes cookies”
+    window.openCookieSettings = function () {
+      const current = getConsent();
+      chkAnalytics.checked = !!(current && current.analytics);
+      openModal();
+    };
+  })();
+</script>
 
 <body>
 
@@ -293,3 +424,4 @@
 
 </body>
 </html>
+
