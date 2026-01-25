@@ -53,12 +53,9 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   gap:12px;
   text-decoration:none;
   color:#fff;
-  font-weight:700;
+  font-weight:800;
 }
-.logo img{
-  height:40px;
-  width:auto;
-}
+.logo img{height:40px;width:auto}
 
 /* ================= NAV ================= */
 .nav-links{
@@ -90,7 +87,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   padding:10px 20px;
   border-radius:999px;
   color:#111;
-  font-weight:700;
+  font-weight:800;
 }
 .nav-cta:hover{background:var(--accent-dark)}
 
@@ -108,7 +105,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 .hero-content{max-width:760px}
 .hero h1{
   font-size:clamp(36px,5vw,56px);
-  font-weight:800;
+  font-weight:900;
   letter-spacing:-.02em;
 }
 .hero p{
@@ -127,7 +124,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 .btn{
   padding:16px 38px;
   border-radius:999px;
-  font-weight:700;
+  font-weight:800;
   text-decoration:none;
   display:inline-flex;
   align-items:center;
@@ -150,18 +147,18 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 .section > .container > h2{
   text-align:center;
   font-size:36px;
-  font-weight:800;
+  font-weight:900;
   color:var(--accent);
   margin-bottom:14px;
 }
 .section > .container > h3{
   text-align:center;
   font-size:22px;
-  font-weight:600;
+  font-weight:700;
   color:#111;
   margin-bottom:60px;
 }
-.section.dark > .container > h3{ color:#e5e7eb; }
+.section.dark > .container > h3{ color:#fff; opacity:.9; } /* ✅ sous titre services blanc */
 
 /* ================= LAYOUT ================= */
 .two-cols{
@@ -180,7 +177,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 /* ================= GARANTIES ================= */
 .trust-container{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
+  grid-template-columns:repeat(2, minmax(0,1fr)); /* ✅ côte à côte */
   gap:28px;
   align-items:stretch;
 }
@@ -197,28 +194,30 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 .trust-box h3{margin:2px 0 8px;color:#111;font-size:18px}
 .trust-box p{color:#4b5563;font-size:15px}
 
-/* ================= SERVICES (refonte avec icônes) ================= */
+/* ================= SERVICES ================= */
 .services-subtitle{
-  color:#e5e7eb;
+  color:#fff;     /* ✅ blanc */
+  opacity:.88;
   font-weight:500;
   margin-bottom:60px;
 }
 .services-grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:34px;
+  grid-template-columns:repeat(3, minmax(0,1fr)); /* ✅ côte à côte */
+  gap:30px;
 }
 .service-card{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
   border-radius:22px;
-  padding:36px 34px;
+  padding:34px 32px;
   box-shadow:0 18px 36px rgba(0,0,0,.25);
   transition:.35s ease;
+  height:100%;
 }
 .service-card:hover{
   transform:translateY(-8px);
-  border-color:rgba(245,158,11,.40);
+  border-color:rgba(245,158,11,.45);
 }
 .service-icon{
   width:70px;height:70px;
@@ -250,9 +249,10 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   color:#fff;
   font-size:20px;
   margin-bottom:10px;
+  font-weight:900;
 }
 .service-card p{
-  color:rgba(255,255,255,.78);
+  color:rgba(255,255,255,.82);
   font-size:15px;
 }
 
@@ -285,11 +285,26 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   color:#4b5563;
 }
 
+/* ================= DIFFERENCIATION BACKGROUND POURQUOI NOUS ================= */
+#pourquoi-nous.section{
+  background:#ffffff;
+}
+#pourquoi-nous.section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(600px 300px at 20% 10%, rgba(245,158,11,.10), transparent 60%),
+    radial-gradient(700px 350px at 80% 30%, rgba(28,35,43,.06), transparent 60%);
+  pointer-events:none;
+}
+#pourquoi-nous .container{position:relative;}
+
 /* ================= POURQUOI NOUS ================= */
 .why-subtitle{
   text-align:center;
   font-size:22px;
-  font-weight:600;
+  font-weight:700;
   color:#111;
   margin-bottom:60px;
 }
@@ -303,7 +318,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   border-radius:22px;
   padding:44px 44px 56px;
   text-align:center;
-  box-shadow:0 20px 40px rgba(0,0,0,.1);
+  box-shadow:0 20px 40px rgba(0,0,0,.10);
   transition:.35s;
 }
 .why-card:hover{transform:translateY(-8px)}
@@ -318,7 +333,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   color:var(--accent);
   font-size:26px;
 }
-.why-card h3{font-size:20px;margin-bottom:14px}
+.why-card h3{font-size:20px;margin-bottom:14px;font-weight:900}
 .why-card p{font-size:15px;color:#4b5563}
 
 /* ================= CONTACT ================= */
@@ -337,10 +352,14 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   background:#fff;
   border-radius:22px;
   padding:40px;
-  box-shadow:0 20px 40px rgba(0,0,0,.1);
+  box-shadow:0 20px 40px rgba(0,0,0,.10);
 }
-.contact-info a{color:inherit}
 .contact-info p{margin:10px 0}
+.contact-info a{color:inherit; word-break:break-word;}
+.contact-info .btn{
+  margin-top:18px;  /* ✅ évite chevauchement avec email */
+}
+
 .contact-map{
   border-radius:22px;
   overflow:hidden;
@@ -380,7 +399,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 .cta-overlay{
   max-width:900px;
   margin:auto;
-  padding:34px 26px;
+  padding:36px 26px;
   border-radius:26px;
   background:rgba(0,0,0,.35);
   backdrop-filter:blur(10px);
@@ -388,9 +407,13 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 }
 .cta-overlay h2{
   font-size:clamp(28px,3.2vw,40px);
-  font-weight:800;
+  font-weight:900;
 }
-.cta-overlay p{color:#e5e7eb;margin:12px 0 26px}
+.cta-overlay p{
+  color:#e5e7eb;
+  margin:12px 0 28px; /* ✅ espace avant bouton */
+}
+.cta-overlay .btn{ margin-top:6px; }
 
 /* ================= FOOTER ================= */
 .footer{
@@ -399,8 +422,8 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   padding:70px 20px;
   text-align:center;
 }
-.footer a{ color:#cbd5e1; text-decoration:none; }
-.footer a:hover{ text-decoration:underline; }
+.footer a{color:#cbd5e1;text-decoration:none}
+.footer a:hover{text-decoration:underline}
 .footer-links{
   margin-top:10px;
   display:flex;
