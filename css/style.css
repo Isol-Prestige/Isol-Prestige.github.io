@@ -295,9 +295,12 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 }
 .project-card:hover{transform:translateY(-6px)}
 .project-card img{
-  height:200px;
-  object-fit:cover;
+  width:100%;
+  display:block;
+  aspect-ratio:1 / 1;   /* ✅ carré */
+  object-fit:cover;     /* ✅ remplit la zone */
   border-radius:16px;
+  background:#f7f8fb;
 }
 .project-card h3{ padding:16px 12px 6px; }
 .project-card p{
