@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Politique de confidentialité – ISOL PRESTIGE</title>
-  <meta name="description" content="Politique de confidentialité du site ISOL PRESTIGE." />
+  <meta name="description" content="Politique de confidentialité du site ISOL PRESTIGE.">
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -15,9 +15,8 @@
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html#accueil" class="logo">
+      <a href="index.html#accueil" class="logo" aria-label="Retour à l'accueil">
         <img src="images/logo.png" alt="ISOL PRESTIGE - Isolation extérieure">
-        <span>ISOL PRESTIGE</span>
       </a>
 
       <nav aria-label="Navigation principale">
@@ -44,7 +43,7 @@
         <ul class="legal-list">
           <li><strong>Société :</strong> ISOL PRESTIGE</li>
           <li><strong>Adresse :</strong> 16 Rue du Lieutenant Bachelier, 88100 Saint-Dié-des-Vosges</li>
-          <li><strong>Email :</strong> <span class="muted">[à compléter]</span></li>
+          <li><strong>Email :</strong> <a href="mailto:contact@isolprestige.fr">contact@isolprestige.fr</a> <span class="muted">(à adapter)</span></li>
           <li><strong>Téléphone :</strong> <span class="muted">[à compléter]</span></li>
         </ul>
 
@@ -58,7 +57,7 @@
 
         <h4>3. Finalités du traitement</h4>
         <ul class="legal-list">
-          <li>Répondre aux demandes de contact ou de devis</li>
+          <li>Répondre aux demandes de contact ou devis</li>
           <li>Gérer les devis et demandes liées aux prestations</li>
           <li>Améliorer l’expérience utilisateur et le site</li>
         </ul>
@@ -66,25 +65,29 @@
         <h4>4. Partage des données</h4>
         <p>Vos données ne sont pas vendues. Elles peuvent être partagées uniquement avec :</p>
         <ul class="legal-list">
-          <li>L’hébergeur du site</li>
+          <li>L’hébergeur du site (GitHub Pages)</li>
           <li>Les prestataires techniques nécessaires à la gestion du site et des formulaires</li>
         </ul>
 
         <h4>5. Cookies et traceurs</h4>
-        <p>Le site utilise des cookies pour :</p>
-        <ul class="legal-list">
-          <li>Statistiques de visites (Google Analytics)</li>
-          <li>Fonctionnalités du site (formulaire de contact, mise en page)</li>
-        </ul>
         <p>
-          Vous pouvez gérer vos préférences ou refuser les cookies via les paramètres de votre navigateur.
+          Le site utilise principalement des cookies nécessaires au fonctionnement et à la sécurité.
+          <strong>Nous n’utilisons pas Google Analytics</strong> (mesure d’audience) sur ce site.
+        </p>
+        <p>
+          Certaines fonctionnalités intégrées (ex : Google Maps, Google Forms) peuvent déposer des cookies via leurs iframes
+          selon votre navigation et vos paramètres.
+        </p>
+        <p>
+          Vous pouvez gérer vos préférences ou refuser certains cookies via les paramètres de votre navigateur, et via
+          le lien “Gérer mes cookies” présent en bas de page.
         </p>
 
         <h4>6. Durée de conservation</h4>
         <p>Les données sont conservées :</p>
         <ul class="legal-list">
           <li><strong>Formulaires et contacts :</strong> 3 ans à compter du dernier contact</li>
-          <li><strong>Cookies statistiques :</strong> 13 mois maximum</li>
+          <li><strong>Cookies :</strong> selon leur nature, au maximum 13 mois pour certains traceurs</li>
         </ul>
 
         <h4>7. Sécurité</h4>
@@ -103,9 +106,7 @@
           <li>Recevoir vos données (portabilité)</li>
         </ul>
         <p>
-          Pour exercer vos droits :
-          <a href="mailto:contact@isolprestige.fr">contact@isolprestige.fr</a>
-          <span class="muted">(à adapter si nécessaire)</span>
+          Pour exercer vos droits : <a href="mailto:contact@isolprestige.fr">contact@isolprestige.fr</a>
         </p>
 
         <h4>9. Modification de la politique</h4>
@@ -120,8 +121,8 @@
   <!-- ================= CTA FINAL ================= -->
   <section class="cta-final">
     <div class="cta-overlay">
-      <h2>Vous avez une question ?</h2>
-      <p>Contactez-nous, nous vous répondons rapidement.</p>
+      <h2>Besoin d’un devis ?</h2>
+      <p>Demande gratuite • Réponse rapide • Sans engagement</p>
       <a href="index.html#contact" class="btn btn-primary">Nous contacter</a>
     </div>
   </section>
@@ -133,8 +134,154 @@
       <a href="mentions-legales.html">Mentions légales</a>
       <span>·</span>
       <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      <span>·</span>
+      <a href="#" onclick="openCookieSettings(); return false;">Gérer mes cookies</a>
     </div>
   </footer>
+
+  <!-- ================= COOKIE BANNER (RGPD) ================= -->
+  <div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Préférences cookies">
+    <div class="cookie__inner">
+      <div class="cookie__icon" aria-hidden="true">
+        <i class="fa-solid fa-cookie-bite"></i>
+      </div>
+
+      <div class="cookie__text">
+        <p class="cookie__title">Votre vie privée compte</p>
+        <p class="cookie__desc">
+          Nous utilisons des cookies nécessaires au fonctionnement du site. Les cookies optionnels (ex : mesure d’audience)
+          ne sont activés qu’avec votre accord.
+          <a href="politique-confidentialite.html">En savoir plus</a>.
+        </p>
+      </div>
+
+      <div class="cookie__actions">
+        <button class="cookie-btn cookie-btn--ghost" id="cookieRefuse">Refuser</button>
+        <button class="cookie-btn cookie-btn--ghost" id="cookieCustomize">Personnaliser</button>
+        <button class="cookie-btn cookie-btn--primary" id="cookieAccept">Accepter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= COOKIE MODAL ================= -->
+  <div class="cookie-modal" id="cookieModal" aria-hidden="true">
+    <div class="cookie-modal__card" role="dialog" aria-label="Personnaliser les cookies">
+      <div class="cookie-modal__head">
+        <div class="cookie-modal__badge"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <h3>Personnaliser les cookies</h3>
+          <p>Choisissez les catégories que vous autorisez.</p>
+        </div>
+      </div>
+
+      <div class="cookie-modal__options">
+        <label class="cookie-option">
+          <input type="checkbox" checked disabled>
+          <span>
+            <strong>Nécessaires</strong>
+            <em>Obligatoires pour le fonctionnement du site.</em>
+          </span>
+        </label>
+
+        <label class="cookie-option">
+          <input type="checkbox" id="cookieAnalytics">
+          <span>
+            <strong>Mesure d’audience</strong>
+            <em>Optionnel, aide à améliorer le site.</em>
+          </span>
+        </label>
+      </div>
+
+      <div class="cookie-modal__actions">
+        <button class="cookie-btn cookie-btn--ghost" id="cookieClose">Annuler</button>
+        <button class="cookie-btn cookie-btn--primary" id="cookieSave">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const KEY = "cookieConsent_v2";
+
+      const banner = document.getElementById("cookieBanner");
+      const modal = document.getElementById("cookieModal");
+
+      const btnAccept = document.getElementById("cookieAccept");
+      const btnRefuse = document.getElementById("cookieRefuse");
+      const btnCustomize = document.getElementById("cookieCustomize");
+
+      const btnClose = document.getElementById("cookieClose");
+      const btnSave = document.getElementById("cookieSave");
+      const chkAnalytics = document.getElementById("cookieAnalytics");
+
+      function getConsent() {
+        try { return JSON.parse(localStorage.getItem(KEY)); } catch(e) { return null; }
+      }
+      function setConsent(data) {
+        localStorage.setItem(KEY, JSON.stringify(data));
+      }
+      function hideBanner() {
+        if (banner) banner.style.display = "none";
+      }
+      function openModal() {
+        modal.style.display = "flex";
+        modal.setAttribute("aria-hidden", "false");
+      }
+      function closeModal() {
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+      function applyConsent(consent) {
+        // Ici tu pourras charger des scripts non essentiels si un jour tu ajoutes Analytics.
+      }
+
+      const consent = getConsent();
+      if (consent && consent.choice) {
+        hideBanner();
+        applyConsent(consent);
+      }
+
+      btnAccept?.addEventListener("click", () => {
+        const data = { choice: "accepted", analytics: true };
+        setConsent(data);
+        hideBanner();
+        applyConsent(data);
+      });
+
+      btnRefuse?.addEventListener("click", () => {
+        const data = { choice: "refused", analytics: false };
+        setConsent(data);
+        hideBanner();
+        applyConsent(data);
+      });
+
+      btnCustomize?.addEventListener("click", () => {
+        const current = getConsent();
+        chkAnalytics.checked = !!(current && current.analytics);
+        openModal();
+      });
+
+      btnClose?.addEventListener("click", closeModal);
+
+      btnSave?.addEventListener("click", () => {
+        const data = { choice: "custom", analytics: chkAnalytics.checked };
+        setConsent(data);
+        hideBanner();
+        applyConsent(data);
+        closeModal();
+      });
+
+      modal?.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      window.openCookieSettings = function () {
+        const current = getConsent();
+        chkAnalytics.checked = !!(current && current.analytics);
+        openModal();
+      };
+    })();
+  </script>
 
 </body>
 </html>
