@@ -55,6 +55,11 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   color:#fff;
   font-weight:800;
 }
+.logo-text{
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.02em;
+}
 .logo img{height:60px;width:auto}
 
 /* ================= NAV ================= */
