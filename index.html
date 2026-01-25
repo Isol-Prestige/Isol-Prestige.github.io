@@ -26,15 +26,46 @@
         <!-- ✅ Texte retiré : le logo contient déjà le nom -->
       </a>
 
-      <nav aria-label="Navigation principale">
-        <ul class="nav-links">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">Qui sommes-nous</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#realisations">Réalisations</a></li>
-          <li><a href="#contact" class="nav-cta">Devis</a></li>
-        </ul>
-      </nav>
+      <nav<nav class="nav" aria-label="Navigation principale">
+  <!-- Bouton burger (visible en mobile) -->
+  <button class="nav-toggle" id="navToggle"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Menu desktop -->
+  <ul class="nav-links nav-links-desktop">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#apropos">Qui sommes-nous</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#realisations">Nos réalisations</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+
+  <!-- Overlay + menu mobile -->
+  <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close" id="mobileClose" aria-label="Fermer le menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="mobile-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">Qui sommes-nous</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#realisations">Nos réalisations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn btn-primary mobile-cta">Demander un devis</a>
+  </div>
+</nav>
     </div>
   </header>
 
@@ -439,6 +470,7 @@
 
 </body>
 </html>
+
 
 
 
