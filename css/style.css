@@ -479,3 +479,4 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
 @media(max-width:600px){
   .legal-card{padding:28px}
 }
+.muted{color:#6b7280}
