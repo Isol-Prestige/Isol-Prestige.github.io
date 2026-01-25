@@ -95,6 +95,9 @@ a:focus-visible, button:focus-visible, .btn:focus-visible{
   font-weight:800;
 }
 .nav-cta:hover{background:var(--accent-dark)}
+.nav-toggle{ 
+  display:none; /* ✅ caché en desktop */
+}
 
 /* ================= HERO ================= */
 .hero{
