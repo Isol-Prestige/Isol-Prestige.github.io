@@ -18,22 +18,53 @@
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html#accueil" class="logo" aria-label="Retour à l'accueil">
-        <img src="images/logo.png" alt="ISOL PRESTIGE - Isolation extérieure">
+      <a href="#accueil" class="logo" aria-label="Retour à l'accueil">
+        <img src="images/logo.png" alt="Isol Prestige">
+         <span class="logo-text">ISOL PRESTIGE</span>
       </a>
 
-      <nav aria-label="Navigation principale">
-        <ul class="nav-links">
-          <li><a href="index.html#accueil">Accueil</a></li>
-          <li><a href="index.html#apropos">Qui sommes-nous</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#realisations">Réalisations</a></li>
-          <li><a href="index.html#contact" class="nav-cta">Devis</a></li>
-        </ul>
-      </nav>
+      <nav<nav class="nav" aria-label="Navigation principale">
+  <!-- Bouton burger (visible en mobile) -->
+  <button class="nav-toggle" id="navToggle"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Menu desktop -->
+  <ul class="nav-links nav-links-desktop">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#apropos">Qui sommes-nous?</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#realisations">Nos réalisations</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+
+  <!-- Overlay + menu mobile -->
+  <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="mobile-menu-title">Menu</span>
+      <button class="mobile-close" id="mobileClose" aria-label="Fermer le menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="mobile-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">Qui sommes-nous?</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#realisations">Nos réalisations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn btn-primary mobile-cta">Demander un devis</a>
+  </div>
+</nav>
     </div>
   </header>
-
   <!-- ================= PAGE ================= -->
   <section class="section alt legal-page">
     <div class="container legal-container">
@@ -285,6 +316,43 @@
       };
     })();
   </script>
+<script>
+  (function () {
+    const toggle = document.getElementById("navToggle");
+    const menu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("mobileOverlay");
+    const closeBtn = document.getElementById("mobileClose");
+
+    if (!toggle || !menu || !overlay || !closeBtn) return;
+
+    function openMenu() {
+      document.body.classList.add("menu-open");
+      toggle.setAttribute("aria-expanded", "true");
+      menu.setAttribute("aria-hidden", "false");
+    }
+
+    function closeMenu() {
+      document.body.classList.remove("menu-open");
+      toggle.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-hidden", "true");
+    }
+
+    toggle.addEventListener("click", () => {
+      document.body.classList.contains("menu-open") ? closeMenu() : openMenu();
+    });
+
+    closeBtn.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    // Fermer au clic sur un lien
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+    // Fermer avec ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  })();
+</script>
 
 </body>
 </html>
