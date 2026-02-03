@@ -14,25 +14,33 @@
 </head>
 
 <body>
-
-  <!-- ================= HEADER ================= -->
+ <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html#accueil" class="logo" aria-label="Retour à l'accueil">
-        <img src="images/logo.png" alt="ISOL PRESTIGE - Isolation extérieure">
+      <a href="#accueil" class="logo" aria-label="Retour à l'accueil">
+        <img src="images/logo.png" alt="Isol Prestige">
+         <span class="logo-text">ISOL PRESTIGE</span>
       </a>
 
-      <nav aria-label="Navigation principale">
-        <ul class="nav-links">
-          <li><a href="index.html#accueil">Accueil</a></li>
-          <li><a href="index.html#apropos">Qui sommes-nous</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#realisations">Réalisations</a></li>
-          <li><a href="index.html#contact" class="nav-cta">Devis</a></li>
-        </ul>
-      </nav>
-    </div>
-      <!-- Overlay + menu mobile -->
+      <nav<nav class="nav" aria-label="Navigation principale">
+  <!-- Bouton burger (visible en mobile) -->
+  <button class="nav-toggle" id="navToggle"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Menu desktop -->
+  <ul class="nav-links nav-links-desktop">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#apropos">Qui sommes-nous?</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#realisations">Nos réalisations</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+
+  <!-- Overlay + menu mobile -->
   <div class="mobile-menu-overlay" id="mobileOverlay"></div>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
