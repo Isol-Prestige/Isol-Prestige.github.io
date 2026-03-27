@@ -489,9 +489,19 @@
     });
   })();
 </script>
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148085892.js"></script>
-<!-- End of HubSpot Embed Code -->
+ <script>
+  (function() {
+    try {
+      var script = document.createElement("script");
+      script.src = "https://js-eu1.hs-scripts.com/148085892.js";
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    } catch (e) {
+      console.warn("HubSpot non chargé", e);
+    }
+  })();
+</script>
 </body>
 </html>
 
