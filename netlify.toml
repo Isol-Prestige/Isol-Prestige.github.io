@@ -1,0 +1,29 @@
+# ============================================================
+# netlify.toml – Configuration déploiement ISOL PRESTIGE
+# ============================================================
+
+[build]
+  publish = "."        # Dossier racine (tous les .html sont à la racine)
+
+# ---- Headers de sécurité ----
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options         = "SAMEORIGIN"
+    X-Content-Type-Options  = "nosniff"
+    Referrer-Policy         = "strict-origin-when-cross-origin"
+    Permissions-Policy      = "camera=(), microphone=(), geolocation=()"
+
+# ---- Redirections ----
+# Assure la canonicalisation www → non-www (adapter selon votre domaine)
+[[redirects]]
+  from   = "https://www.isolprestige.fr/*"
+  to     = "https://isolprestige.fr/:splat"
+  status = 301
+  force  = true
+
+# Page 404 personnalisée (optionnel : créer un fichier 404.html)
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
